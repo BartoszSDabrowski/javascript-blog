@@ -48,8 +48,6 @@
         let html = '';
 
         /* [DONE] for each article */
-        /*const articles = document.querySelectorAll(optArticleSelector);*/
-
         for(let article of articles){
             /* [DONE] get the article id */
             const articleId = article.getAttribute('id');
