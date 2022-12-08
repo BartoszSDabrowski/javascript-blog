@@ -49,16 +49,15 @@
         titleList.innerHTML = '';
 
         /* [DONE] for each article */
-        const articles = document.querySelectorAll(optTitleSelector);
-        console.log(articles);
+        const articles = document.querySelectorAll(optArticleSelector);
 
         for(let article of articles){
             /* [DONE] get the article id */
             const articleId = article.getAttribute('id');
-            console.log(articleId)
 
-            /* find the title element */
-
+            /* [DONE] find the title element */
+            const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+            console.log('title', articleTitle);
 
             /* get the title from the title element */
 
