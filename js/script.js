@@ -32,12 +32,6 @@
         targetArticle.classList.add('active');
     }
 
-    const links = document.querySelectorAll('.titles a');
-
-    for(let link of links){
-        link.addEventListener('click', titleClickHandler);
-    }
-
     const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles';
@@ -48,26 +42,35 @@
         
         titleList.innerHTML = '';
 
+        /* [DONE] find all the articles and save them to variable: articles */
+        let articles = document.querySelectorAll(optArticleSelector);
+
+        let html = '';
+
         /* [DONE] for each article */
-        const articles = document.querySelectorAll(optArticleSelector);
+        /*const articles = document.querySelectorAll(optArticleSelector);*/
 
         for(let article of articles){
             /* [DONE] get the article id */
             const articleId = article.getAttribute('id');
 
-            /* [DONE] find the title element */
+            /* [DONE] find the title element and get the title from the title element */
             const articleTitle = article.querySelector(optTitleSelector).innerHTML;
-            console.log('title', articleTitle);
 
-            /* get the title from the title element */
+            /* [DONE] create HTML of the link */
+            const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
 
-
-            /* create HTML of the link */
-
-
-            /* insert link into titleList */
+            /* [DONE] insert link into titleList */
+            html = html + linkHTML;
         }
 
+        titleList.innerHTML = html;
+
+        const links = document.querySelectorAll('.titles a');
+
+        for(let link of links){
+            link.addEventListener('click', titleClickHandler);
+        }
     }
 
     generateTitleLinks();
