@@ -44,7 +44,7 @@
     titleList.innerHTML = '';
 
     /* [DONE] find all the articles and save them to variable: articles */
-    let articles = document.querySelectorAll(optArticleSelector);
+    let articles = document.querySelectorAll(optArticleSelector + customSelector);
 
     let html = '';
 
@@ -128,7 +128,7 @@
     const tag = href.replace('#tag-', '');
 
     /* [DONE] find all tag links with class active */
-    const activeTags = document.querySelectAll('a.active[href^="#tag-"]');
+    const activeTags = document.querySelectorAll('a.active[href^="#tag-"]');
 
     /* [DONE] START LOOP: for each active tag link */
     for(let activeTag of activeTags){
@@ -156,18 +156,22 @@
   }
 
   function addClickListenersToTags(){
-    /* find all links to tags */
+    /* [DONE] find all links to tags */
+    const tagLinks = document.querySelectorAll('.post-tags .list a');
 
+    /* [DONE] START LOOP: for each link */
+    for(let tagLink of tagLinks){
 
-    /* START LOOP: for each link */
+        /* [DONE] add tagClickHandler as event listener for that link */
+        tagLink.addEventListener('click', tagClickHandler);
 
-
-        /* add tagClickHandler as event listener for that link */
-
-
-    /* END LOOP: for each link */
-
+    /* [DONE] END LOOP: for each link */
+    }
   }
 
 addClickListenersToTags();
+
+  generateAuthors(){
+
+  }
 }
